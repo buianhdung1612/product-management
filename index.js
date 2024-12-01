@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser') 
 const flash = require('express-flash')
 const cookieParser = require('cookie-parser')
+const path = require('path');
 const session = require('express-session')
 const methodOverride = require('method-override')
 require('dotenv').config()
@@ -35,6 +36,9 @@ app.use(bodyParser.json())
 
 //Khai báo biến toàn cục cho file pug 
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+
+/* TinyMCE */
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 
 //Khai báo đường dẫn
 routeAdmin(app);

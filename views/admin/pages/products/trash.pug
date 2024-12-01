@@ -46,6 +46,7 @@ block main
             th Hình ảnh
             th Tiêu đề
             th Hành động
+            th Xóa bởi
 
         tbody
           each item, index in products
@@ -74,6 +75,9 @@ block main
                   item-id=item.id
                   data-path=`/${prefixAdmin}/products/delete-destroy`
                 ) Xóa vĩnh viễn
+              td
+                div #{item.deletedByFullName}
+                div #{item.deletedAtFormat}
   +pagination()
 
   
